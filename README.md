@@ -41,7 +41,6 @@ Abre [http://localhost:3000](http://localhost:3000) para verla en el navegador.
 
 Construye la aplicación para producción en la carpeta `build`.
 
-## Notas importantes
+## Nota importantes
 
 - Los archivos `.env.development` y `.env.production` no deben ser committeados al repositorio
-- Asegúrate de agregar estos archivos a tu `.gitignore` si no están ya incluidos
