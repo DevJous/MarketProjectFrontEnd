@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import type ProductoModel from "../models/ProductoModel";
 import Swal from 'sweetalert2'
+import { toast } from "react-toastify";
 
 export function useProductos() {
     const [productos, setProductos] = useState<ProductoModel[]>([]);
@@ -20,6 +21,11 @@ export function useProductos() {
     };
 
     const crearProducto = async (nuevoProducto: ProductoModel) => {
+        if(nuevoProducto.nombre.trim() === '' || nuevoProducto.precio <= 0 || nuevoProducto.idCategoria === 0){
+            toast.error("Nombre, precio y categoría son obligatorios");
+            return;
+        }
+
         try {
             await fetch(`${process.env.API_URL}/products/add`, {
                 method: "POST",
